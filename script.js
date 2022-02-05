@@ -7,22 +7,18 @@ function calculate() {
   let first = parseInt(document.querySelector("#firstnumber").value);
   let second = parseInt(document.querySelector("#secondnumber").value);
   let operation = document.getElementById("operator").options[operator.selectedIndex].value;
-
+  let li = document.createElement("li");
+  let result;
   if (operation === "add") {
-    let li = document.createElement("li");
-    li.innerText = first + second;
-    list.prepend(li);
+    result = first + second;
   } else if (operation === "sub") {
-    let li = document.createElement("li");
-    li.innerText = first - second;
-    list.prepend(li);
+    result = first - second;
   } else if (operation === "mul") {
-    let li = document.createElement("li");
-    li.innerText = first * second;
-    list.prepend(li);
+    result = first * second;
   } else if (operation === "div") {
-    let li = document.createElement("li");
-    li.innerText = first / second;
-    list.prepend(li);
+    result = first / second;
   }
+  li.innerText = result;
+  document.querySelector("#firstnumber").value = result;
+  list.appendChild(li);
 }
