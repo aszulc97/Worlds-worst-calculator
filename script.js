@@ -1,8 +1,12 @@
+window.addEventListener("load", start);
+
 let results = [];
 let list = document.getElementById("results");
 
-document.querySelector("#calculate").addEventListener("click", calculate);
-
+function start() {
+  document.querySelector("#calculate").addEventListener("click", calculate);
+  document.querySelector("#clear").addEventListener("click", clearResults);
+}
 function calculate() {
   let first = parseInt(document.querySelector("#firstnumber").value);
   let second = parseInt(document.querySelector("#secondnumber").value);
@@ -21,4 +25,11 @@ function calculate() {
   li.innerText = result;
   document.querySelector("#firstnumber").value = result;
   list.appendChild(li);
+}
+
+function clearResults() {
+  const myNode = document.getElementById("results");
+  while (myNode.childNodes.length > 2) {
+    myNode.removeChild(myNode.lastChild);
+  }
 }
